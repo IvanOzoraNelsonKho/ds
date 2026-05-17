@@ -1,3 +1,12 @@
+/*
+Kelompok 7
+Anggota: 
+1. 535230092 - Sammy Ferdinand
+2. 535250064 - Ivan Ozora Nelson Kho
+3. 535250094 - Kenny Martin Holiem
+4. 535250097 - Diana
+ */
+
 import com.datastruct.*;
 
 class MyVertex {
@@ -30,37 +39,35 @@ class MyVertex {
 
 public class GraphMain {
     public static void main(String[] args) {
-        MyVertex vE = new MyVertex("E", 0);
-        MyVertex vD = new MyVertex("D", 1);
-        MyVertex vI = new MyVertex("I", 2);
-        MyVertex vC = new MyVertex("C", 3);
-        MyVertex vG = new MyVertex("G", 4);
-        MyVertex vF = new MyVertex("F", 5);
-        MyVertex vB = new MyVertex("B", 6);
-        MyVertex vH = new MyVertex("H", 7);
-        MyVertex vA = new MyVertex("A", 8);
+        MyVertex v0 = new MyVertex("V0", 0);
+        MyVertex v1 = new MyVertex("V1", 1);
+        MyVertex v2 = new MyVertex("V2", 2);
+        MyVertex v3 = new MyVertex("V3", 3);
+        MyVertex v4 = new MyVertex("V4", 4);
+        MyVertex v5 = new MyVertex("V5", 5);
+        MyVertex v6 = new MyVertex("V6", 6);
 
         Graph<MyVertex> WG = new Graph<MyVertex>(true);
 
-        WG.addEdge(vE, vF, 1);
-        WG.addEdge(vE, vH, 1);
-        WG.addEdge(vD, vG, 1);
-        WG.addEdge(vI, vF, 1);
-        WG.addEdge(vC, vB, 1);
-        WG.addEdge(vG, vH, 1);
-        WG.addEdge(vF, vC, 1);
-        WG.addEdge(vF, vH, 1);
-        WG.addEdge(vB, vE, 1);
-        WG.addEdge(vH, vI, 1);
-        WG.addEdge(vA, vB, 1);
-        WG.addEdge(vA, vD, 1);
-        WG.addEdge(vA, vE, 1);
-
-        System.out.println("Directed Graph:"); 
-        WG.printGraph();
+        WG.addEdge(v2, v0, 1);
+        WG.addEdge(v2, v5, 1);
+        WG.addEdge(v0, v1, 1);
+        WG.addEdge(v0, v3, 1);
+        WG.addEdge(v1, v3, 1);
+        WG.addEdge(v1, v4, 1);
+        WG.addEdge(v3, v2, 1);
+        WG.addEdge(v3, v4, 1);
+        WG.addEdge(v3, v5, 1);
+        WG.addEdge(v3, v6, 1);
+        WG.addEdge(v4, v6, 1);
+        WG.addEdge(v6, v5, 1);
         
-        System.out.println();
-        WG.DFS(vA);
-        WG.BFS(vA);
+        WG.dijkstra(v2, v6);
     }
 }
+
+/*
+=== Output ===
+jarak dari V2 ke V6 = 3
+Path: V2 --> V0 --> V3 --> V6
+ */
